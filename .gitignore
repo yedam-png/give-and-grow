@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# local env (API keys 등 비밀은 저장소에 올리지 않음)
+.env
+
+# vite 기본 빌드 폴더 (배포는 docs/ 사용)
+dist
+
+# 로그/시스템
+*.log
+.DS_Store
