@@ -39,8 +39,12 @@ export default function App() {
   // equipped = 현재 착용한 아이템 id 하나 (또는 null). 각 캐릭터 착용 이미지가 아이템 1개 기준이라 단일 선택.
   const [owned, setOwned] = useState(() => new Set())
   const [equipped, setEquipped] = useState(null)
-  // 맵에서 봉사활동을 예약해야 그룹챗이 열림. 예약 완료 시 reserved=true (게이팅).
-  const [reserved, setReserved] = useState(false)
+  // 예약한 봉사활동 id들의 집합 — 여러 개를 동시에 예약 가능.
+  const [reservedIds, setReservedIds] = useState(() => new Set())
+  // 지금 상세·예약 화면에서 다루는 봉사 id (맵/목록 → 상세 → 완료로 전달)
+  const [pendingId, setPendingId] = useState(null)
+  // 그룹챗은 예약이 하나라도 있으면 열림
+  const reserved = reservedIds.size > 0
 
   // 버튼/인터랙션 클릭 시 전역 효과음 재생
   useEffect(() => {
@@ -68,7 +72,10 @@ export default function App() {
         equipped={equipped}
         setEquipped={setEquipped}
         reserved={reserved}
-        setReserved={setReserved}
+        reservedIds={reservedIds}
+        setReservedIds={setReservedIds}
+        pendingId={pendingId}
+        setPendingId={setPendingId}
       />
     </PhoneFrame>
   )

@@ -4,8 +4,13 @@ node_modules
 # local env (API keys 등 비밀은 저장소에 올리지 않음)
 .env
 
-# vite 기본 빌드 폴더 (배포는 docs/ 사용)
+# vite 빌드 폴더 (배포는 GitHub Actions가 dist를 Pages로 올림)
 dist
+docs
+
+# 스크래퍼 임시 파일
+resp.html
+seoul.html
 
 # 로그/시스템
 *.log

@@ -10,11 +10,8 @@ import item3 from '../assets/item3.png'
 import item4 from '../assets/item4.png'
 import item5 from '../assets/item5.png'
 import item6 from '../assets/item6.png'
-import item7 from '../assets/item7.png'
-import item8 from '../assets/item8.png'
-import item9 from '../assets/item9.png'
 
-const ITEM_IMG = { item1, item2, item3, item4, item5, item6, item7, item8, item9 }
+const ITEM_IMG = { item1, item2, item3, item4, item5, item6 }
 const CHAR_ORDER = ['A', 'C', 'B']
 
 // 캐릭터별 착용 완성 이미지 (assets/char/{A|B|C}_{base|vest|hat1|hat2|tool|boots|compass}.png)
@@ -113,8 +110,8 @@ function MarketView({ owned, onSelectItem, onOpenBundle }) {
 
       <div className="mt-5 flex gap-2">
         <CatTab active={category === 'all'} onClick={() => setCategory('all')}>All</CatTab>
-        <CatTab active={category === 'avatar'} onClick={() => setCategory('avatar')}>Avatar</CatTab>
         <CatTab active={category === 'cloth'} onClick={() => setCategory('cloth')}>Cloth</CatTab>
+        <CatTab active={category === 'gear'} onClick={() => setCategory('gear')}>Gear</CatTab>
       </div>
 
       <div className="mt-4 grid grid-cols-3 gap-3">

@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
 
 // ⑦ 예약 완료 (Confirmation) — 애니메이션 체크마크
-// 예약이 완료되면 그룹챗 게이팅 해제 (reserved=true).
-export default function ConfirmScreen({ go, setReserved }) {
+// 방금 예약한 활동(pendingId)을 예약 집합에 추가 (기존 예약은 그대로 → 여러 개 동시 예약).
+export default function ConfirmScreen({ go, pendingId, setReservedIds }) {
   useEffect(() => {
-    setReserved?.(true)
-  }, [setReserved])
+    if (pendingId == null) return
+    setReservedIds?.((prev) => new Set(prev).add(pendingId))
+  }, [pendingId, setReservedIds])
 
   return (
     <div className="flex-1 flex flex-col items-center justify-center gap-6 p-6 text-center">
